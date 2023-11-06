@@ -1,4 +1,6 @@
----
+---import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
 export interface Props {
   title: string;
 }
@@ -17,52 +19,46 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
+  <Header></Header>
   <body>
     <slot />
   </body>
-  <foooter>
-    <div class="pt-5 pb-5 bg-light-black">
-      <p class="ml-5 text-primary">
-        Image by <a
-          href="https://www.freepik.com/free-psd/black-white-love-web-template_15519368.htm#&position=2&from_view=user"
-          >Freepik</a
-        >
-      </p>
-    </div>
-  </foooter>
+  <Footer></Footer>
+
+
+  <style is:global>
+    @font-face {
+      font-family: 'Jura';
+      src: url('/fonts/Jura.ttf');
+    }
+
+    @font-face {
+      font-family: 'DelaGothicOne';
+      src: url('/fonts/DelaGothicOne.ttf');
+    }
+
+    :root {
+      --primary-color: #e9e9e5;
+    }
+
+    html {
+      background-color: var(--primary-color);
+      height: 100vh;
+      font-family: 'Jura', 'Yu Gothic';
+      position: relative;
+    }
+
+    body {
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'DelaGothicOne', 'Meiryo';
+    }
+    p {
+      font-size: 16px;
+    }
+  </style>
 </html>
-
-<style is:global>
-  @font-face {
-    font-family: 'Jura';
-    src: url('/fonts/Jura.ttf');
-  }
-
-  @font-face {
-    font-family: 'DelaGothicOne';
-    src: url('/fonts/DelaGothicOne.ttf');
-  }
-
-  :root {
-    --primary-color: #e9e9e5;
-  }
-
-  html {
-    background-color: var(--primary-color);
-    height: 100vh;
-    font-family: 'Jura', 'Yu Gothic';
-  }
-
-  body {
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: 'DelaGothicOne', 'Meiryo';
-  }
-  p {
-    font-size: 16px;
-  }
-</style>
