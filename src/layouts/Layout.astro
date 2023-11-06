@@ -1,37 +1,68 @@
 ---
-import '/src/styles/global.css'
-
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
+<!-- TODO: Add ja to lang -->
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- TODO: Implement favicon -->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+  <foooter>
+    <div class="pt-5 pb-5 bg-light-black">
+      <p class="ml-5 text-primary">
+        Image by <a
+          href="https://www.freepik.com/free-psd/black-white-love-web-template_15519368.htm#&position=2&from_view=user"
+          >Freepik</a
+        >
+      </p>
+    </div>
+  </foooter>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  @font-face {
+    font-family: 'Jura';
+    src: url('/fonts/Jura.ttf');
+  }
+
+  @font-face {
+    font-family: 'DelaGothicOne';
+    src: url('/fonts/DelaGothicOne.ttf');
+  }
+
+  :root {
+    --primary-color: #e9e9e5;
+  }
+
+  html {
+    background-color: var(--primary-color);
+    height: 100vh;
+    font-family: 'Jura', 'Yu Gothic';
+  }
+
+  body {
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'DelaGothicOne', 'Meiryo';
+  }
+  p {
+    font-size: 16px;
+  }
 </style>
