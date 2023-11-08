@@ -1,20 +1,21 @@
 import { WritableAtom, atom } from "nanostores";
 
-enum Languages {
+export enum Languages {
   EN = 'en',
   JA = 'ja'
 }
 
 class LanguageStore {
-  language: WritableAtom<Languages>;
+  state: WritableAtom<Languages>;
 
   constructor(lang: Languages) {
-    this.language = atom(lang)
+    this.state = atom(lang)
   }
 
   setLanguage(lang: Languages) {
-    if (this.language.get() === lang) return;
-    this.language.set(lang)
+    console.log('setLanguage', lang)
+    if (this.state.get() === lang) return;
+    this.state.set(lang)
   }
 }
 
