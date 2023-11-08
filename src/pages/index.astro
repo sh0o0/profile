@@ -22,10 +22,12 @@ import StackedSignboard from '../components/StackedSignboard.astro';
       <div class="h-8"></div>
       <div class="flex justify-between">
         <BlackButton>Who am I?</BlackButton>
-        <PrimaryButton>Discover my projects.</PrimaryButton>
+        <a href="/projects">
+          <PrimaryButton>Discover my projects.</PrimaryButton>
+        </a>
       </div>
     </main>
-    <div class="absolute left-40 bottom-80">
+    <div class="absolute left-40 bottom-40">
       <StackedSignboard
         title="Contacts"
         description="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
