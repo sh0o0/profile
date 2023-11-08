@@ -1,0 +1,45 @@
+---
+import Signboard from '../components/Signboard.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const signboardTopHeight = "4rem";
+---
+
+<div class="edge">
+  <div class="forward">
+    <Signboard title={title} description={description} topHeight={signboardTopHeight} />
+  </div>
+  <div class="behind">
+    <Signboard topHeight={signboardTopHeight} />
+  </div>
+  <img src="/images/blob_gummy.svg" alt="gummy" class="absolute -bottom-2 -right-4 z-30"/>
+</div>
+
+<style>
+  .edge {
+    position: relative;
+    width: 19rem;
+    height: 21rem;
+  }
+  .forward {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 18rem;
+    height: 20rem;
+  }
+  .behind {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+    width: 18rem;
+    height: 20rem;
+  }
+</style>

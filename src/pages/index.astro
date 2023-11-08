@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import BlackButton from '../components/BlackButton.astro';
 import PrimaryButton from '../components/PrimaryButton.astro';
+import StackedSignboard from '../components/StackedSignboard.astro';
 ---
 
 <Layout title="Shotaro Nakata's Portfolio">
@@ -24,6 +25,12 @@ import PrimaryButton from '../components/PrimaryButton.astro';
         <PrimaryButton>Discover my projects.</PrimaryButton>
       </div>
     </main>
+    <div class="absolute left-40 bottom-80">
+      <StackedSignboard
+        title="Contacts"
+        description="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      />
+    </div>
     <img
       src="/images/me.svg"
       alt="me"
