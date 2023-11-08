@@ -28,8 +28,7 @@ export default function Header() {
       <div class="flex flex-row text-xl underline-offset-4">
         <button
           class={`${language === Languages.EN ? 'underline' : ''}`}
-          onClick={() => console.log('clicked')}
-          // onClick={() => languageStore.setLanguage(Languages.EN)}
+          onClick={() => languageStore.setLanguage(Languages.EN)}
         >
           EN
         </button>

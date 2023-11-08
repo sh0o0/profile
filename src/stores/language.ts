@@ -1,4 +1,4 @@
-import { WritableAtom, atom } from "nanostores";
+import { atom, type WritableAtom } from "nanostores";
 
 export enum Languages {
   EN = 'en',
