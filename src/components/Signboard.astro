@@ -1,0 +1,17 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  topHeight: string;
+}
+const { title = "", description = "", topHeight = "0px" } = Astro.props;
+---
+
+<div class="flex flex-col border-4 border-pure-black h-full w-full">
+  <div class=`flex-none bg-pure-black w-full` style=`height: ${topHeight};`>
+    <p class="text-primary break-words">{title}</p>
+  </div>
+  <div class="grow bg-primary m-auto w-full">
+    <p class="break-words">{description}</p>
+  </div>
+</div>
