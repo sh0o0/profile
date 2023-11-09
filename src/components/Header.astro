@@ -1,8 +1,9 @@
 ---
 import { languages } from '../i18n/ui';
-import { getLangFromUrl } from '../i18n/utils';
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
 
 const currentLang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(currentLang);
 ---
 
 <header
@@ -11,13 +12,13 @@ const currentLang = getLangFromUrl(Astro.url);
   <nav class="">
     <ul class="flex flex-row text-xl font-bold">
       <li>
-        <a href="" class=""> Home</a>
+        <a href={translatePath('/')} class=""> Home</a>
       </li>
       <li>
-        <a href="#" class="pl-8"> About</a>
+        <a href={translatePath('/about')} class="pl-8"> About</a>
       </li>
       <li>
-        <a href="/projects" class="pl-8"> Projects</a>
+        <a href={translatePath('/projects')} class="pl-8"> Projects</a>
       </li>
     </ul>
   </nav>

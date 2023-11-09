@@ -1,3 +1,4 @@
+import type { GetStaticPaths } from 'astro';
 import { ui, defaultLang } from './ui';
 
 export function getLangFromUrl(url: URL) {
@@ -6,13 +7,21 @@ export function getLangFromUrl(url: URL) {
   return defaultLang;
 }
 
-export function getUrl(currentUrl: URL, path: string) {
-  const lang = getLangFromUrl(currentUrl);
-  return `/${lang}/${path}`;
-}
+export const getI18nStaticPaths = (() => {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'ja' } },
+  ];
+}) satisfies GetStaticPaths;
 
 export function useTranslations(lang: keyof typeof ui) {
   return function t(key: keyof typeof ui[typeof defaultLang]) {
     return ui[lang][key] || ui[defaultLang][key];
+  }
+}
+
+export function useTranslatedPath(lang: keyof typeof ui) {
+  return function translatePath(path: string, l: string = lang) {
+    return `/${l}${path}`
   }
 }
