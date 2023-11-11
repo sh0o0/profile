@@ -41,12 +41,9 @@ const projects = [
 ---
 
 <Base title="Shotaro Nakata's Portfolio">
-  <main
-    class="relative w-full px-10"
-  >
+  <main class="relative w-full px-20 pt-80">
     <h1 class="text-left text-6xl font-extrabold">Projects</h1>
-    <div class="h-20"></div>
-    <div class="grid grid-cols-2 gap-10 gap-y-60 px-10">
+    <div class="mt-40 grid grid-cols-2 gap-10 gap-y-60 px-10">
       {
         projects.map((p) => (
           <div class="m-auto">
@@ -55,11 +52,5 @@ const projects = [
         ))
       }
     </div>
-    <img
-      src="/images/middle_gummy.svg"
-      alt="middle_gummy"
-      class="absolute -z-10"
-      style="right: -540px; bottom: -550px;"
-    />
   </main>
 </Base>
