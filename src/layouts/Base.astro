@@ -24,6 +24,13 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <img
+      src="/images/top_gummy.svg"
+      alt="top_gummy"
+      class="absolute -z-10"
+      style="top: -900px; left: -600px;"
+    />
+
     <Header />
     <slot />
     <Footer />
@@ -52,6 +59,8 @@ const { title } = Astro.props;
     }
 
     body {
+      position: relative;
+      background-image: url(/images/paper-texture.png);
     }
 
     h1,
