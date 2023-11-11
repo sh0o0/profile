@@ -3,34 +3,32 @@ import Signboard from './Signboard.astro';
 
 interface Props {
   title: string;
-  description: string;
 }
 
-const { title, description } = Astro.props;
+const { title } = Astro.props;
 
 const signboardTopHeight = '4rem';
-const edgeHeight = '21rem';
-const edgeWidth = '25rem';
+const edgeHeight = '22rem';
+const edgeWidth = '28rem';
 const gap = '1rem';
-const boardHeight = `calc(${edgeHeight} - ${gap});`;
-const boardWidth = `calc(${edgeWidth} - ${gap});`;
-const hoveredBehindBottom = `-${edgeHeight}`;
+const boardHeight = `calc(${edgeHeight} - ${gap})`;
+const boardWidth = `calc(${edgeWidth} - ${gap})`;
+const hoveredBehindBottom = `calc(0rem - ${boardHeight})`;
 const hoveredBehindRight = gap;
 ---
 
 <div class="edge group">
   <div class="forward">
-    <Signboard
-      title={title}
-      description={description}
-      topHeight={signboardTopHeight}
-    />
+    <Signboard title={title} titleHeight={signboardTopHeight}>
+      <slot name="forward" />
+    </Signboard>
   </div>
   <div class="behind">
-    <Signboard topHeight={signboardTopHeight} />
+    <Signboard title='Description' titleHeight={signboardTopHeight}>
+      <slot name="behind" />
+    </Signboard>
   </div>
 </div>
-
 
 <style
   define:vars={{
@@ -69,6 +67,5 @@ const hoveredBehindRight = gap;
     bottom: var(--hoveredBehindBottom);
     right: var(--hoveredBehindRight);
     z-index: 30;
-    /* margin-top: calc(0 - var(--gap)); */
   }
 </style>
