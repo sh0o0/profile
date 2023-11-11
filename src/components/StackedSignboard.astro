@@ -8,23 +8,21 @@ interface Props {
 const { title } = Astro.props;
 
 const signboardTopHeight = '4rem';
-const edgeHeight = '22rem';
-const edgeWidth = '28rem';
 const gap = '1rem';
-const boardHeight = `calc(${edgeHeight} - ${gap})`;
-const boardWidth = `calc(${edgeWidth} - ${gap})`;
-const hoveredBehindBottom = `calc(0rem - ${boardHeight})`;
-const hoveredBehindRight = gap;
+const edgeHeight = '18rem';
+const edgeWidth = '20rem';
+const mdEdgeHeight = '22rem';
+const mdEdgeWidth = '28rem';
 ---
 
-<div class="edge group">
+<div class="edge">
   <div class="forward">
     <Signboard title={title} titleHeight={signboardTopHeight}>
       <slot name="forward" />
     </Signboard>
   </div>
   <div class="behind">
-    <Signboard title='Description' titleHeight={signboardTopHeight}>
+    <Signboard title="Description" titleHeight={signboardTopHeight}>
       <slot name="behind" />
     </Signboard>
   </div>
@@ -32,40 +30,51 @@ const hoveredBehindRight = gap;
 
 <style
   define:vars={{
-    edgeHeight,
-    edgeWidth,
+    edgeHeight: edgeHeight,
+    edgeWidth: edgeWidth,
+    mdEdgeHeight: mdEdgeHeight,
+    mdEdgeWidth: mdEdgeWidth,
     gap,
-    boardHeight,
-    boardWidth,
-    hoveredBehindBottom,
-    hoveredBehindRight,
   }}
 >
   .edge {
     position: relative;
     width: var(--edgeWidth);
     height: var(--edgeHeight);
+
+    --board-height: calc(var(--edgeHeight) - var(--gap));
+    --board-width: calc(var(--edgeWidth) - var(--gap));
+  }
+
+  @media (min-width: 768px) {
+    .edge {
+      width: var(--mdEdgeWidth);
+      height: var(--mdEdgeHeight);
+
+      --board-height: calc(var(--mdEdgeHeight) - var(--gap));
+      --board-width: calc(var(--mdEdgeWidth) - var(--gap));
+    }
   }
   .forward {
     position: absolute;
     z-index: 20;
     top: 0;
     left: 0;
-    height: var(--boardHeight);
-    width: var(--boardWidth);
+    height: var(--board-height);
+    width: var(--board-width);
   }
   .behind {
     position: absolute;
     z-index: 10;
     bottom: 0;
     right: 0;
-    height: var(--boardHeight);
-    width: var(--boardWidth);
+    height: var(--board-height);
+    width: var(--board-width);
     transition: all 0.1s linear;
   }
   .edge:hover .behind {
-    bottom: var(--hoveredBehindBottom);
-    right: var(--hoveredBehindRight);
+    bottom: calc(0rem - var(--board-height));
+    right: var(--gap);
     z-index: 30;
   }
 </style>
