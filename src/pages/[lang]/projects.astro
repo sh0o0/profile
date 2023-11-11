@@ -1,5 +1,72 @@
 ---
-import { getI18nStaticPaths } from '../../i18n/utils';
+import {
+  getLangFromUrl,
+  getLangStaticPaths,
+  useTranslations,
+} from '../../i18n/utils';
+import Base from '../../layouts/Base.astro';
+import StackedSignboard from '../../components/StackedSignboard.astro';
 
-export const getStaticPaths = getI18nStaticPaths;
+export const getStaticPaths = getLangStaticPaths;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const projects = [
+  {
+    name: 'Gummy',
+    description: 'A simple and fast static site generator for Astro.',
+    url: 'https://example.com/',
+    github: 'https://github.com/',
+  },
+  {
+    name: 'Gummy',
+    description: 'A simple and fast static site generator for Astro.',
+    url: 'https://example.com/',
+    github: 'https://github.com/',
+  },
+  {
+    name: 'Gummy',
+    description: 'A simple and fast static site generator for Astro.',
+    url: 'https://example.com/',
+    github: 'https://github.com/',
+  },
+  {
+    name: 'Gummy',
+    description: 'A simple and fast static site generator for Astro.',
+    url: 'https://example.com/',
+    github: 'https://github.com/',
+  },
+];
 ---
+
+<Base title="Shotaro Nakata's Portfolio">
+  <main
+    class="relative w-full px-10"
+    style="background-image: url(/images/paper-texture.png)"
+  >
+    <h1 class="text-left text-6xl font-extrabold">Projects</h1>
+    <div class="h-20"></div>
+    <div class="grid grid-cols-2 gap-10 gap-y-60 px-10">
+      {
+        projects.map((p) => (
+          <div class="m-auto">
+            <StackedSignboard title={p.name} description={p.description} />
+          </div>
+        ))
+      }
+    </div>
+    <img
+      src="/images/top_gummy.svg"
+      alt="top_gummy"
+      class="absolute -z-10"
+      style="top: -900px; left: -600px;"
+    />
+    <img
+      src="/images/middle_gummy.svg"
+      alt="middle_gummy"
+      class="absolute -z-10"
+      style="right: -540px; bottom: -550px;"
+    />
+  </main>
+</Base>

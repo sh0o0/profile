@@ -7,7 +7,7 @@ export function getLangFromUrl(url: URL) {
   return defaultLang;
 }
 
-export const getI18nStaticPaths = (() => {
+export const getLangStaticPaths = (() => {
   return [
     { params: { lang: 'en' } },
     { params: { lang: 'ja' } },

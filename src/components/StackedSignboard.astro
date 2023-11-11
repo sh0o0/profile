@@ -1,5 +1,5 @@
 ---
-import Signboard from '../components/Signboard.astro';
+import Signboard from './Signboard.astro';
 
 interface Props {
   title: string;
@@ -7,44 +7,68 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const signboardTopHeight = "4rem";
+
+const signboardTopHeight = '4rem';
+const edgeHeight = '21rem';
+const edgeWidth = '25rem';
+const gap = '1rem';
+const boardHeight = `calc(${edgeHeight} - ${gap});`;
+const boardWidth = `calc(${edgeWidth} - ${gap});`;
+const hoveredBehindBottom = `-${edgeHeight}`;
+const hoveredBehindRight = gap;
 ---
 
 <div class="edge group">
   <div class="forward">
-    <Signboard title={title} description={description} topHeight={signboardTopHeight} />
+    <Signboard
+      title={title}
+      description={description}
+      topHeight={signboardTopHeight}
+    />
   </div>
   <div class="behind">
     <Signboard topHeight={signboardTopHeight} />
   </div>
-  <img src="/images/blob_gummy.svg" alt="gummy" class="absolute -bottom-2 -right-4 z-30 group-hover:rotate-6 translate ease-out duration-300"/>
 </div>
 
-<style>
+
+<style
+  define:vars={{
+    edgeHeight,
+    edgeWidth,
+    gap,
+    boardHeight,
+    boardWidth,
+    hoveredBehindBottom,
+    hoveredBehindRight,
+  }}
+>
   .edge {
     position: relative;
-    width: 19rem;
-    height: 21rem;
-    transition: all 0.3s ease-out;
-  }
-  .edge:hover {
-    width: 19.25rem;
-    height: 21.25rem;
+    width: var(--edgeWidth);
+    height: var(--edgeHeight);
   }
   .forward {
     position: absolute;
     z-index: 20;
     top: 0;
     left: 0;
-    width: 18rem;
-    height: 20rem;
+    height: var(--boardHeight);
+    width: var(--boardWidth);
   }
   .behind {
     position: absolute;
     z-index: 10;
     bottom: 0;
     right: 0;
-    width: 18rem;
-    height: 20rem;
+    height: var(--boardHeight);
+    width: var(--boardWidth);
+    transition: all 0.1s linear;
+  }
+  .edge:hover .behind {
+    bottom: var(--hoveredBehindBottom);
+    right: var(--hoveredBehindRight);
+    z-index: 30;
+    /* margin-top: calc(0 - var(--gap)); */
   }
 </style>
