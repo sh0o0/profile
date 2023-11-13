@@ -53,3 +53,22 @@ const signboardTopHeight = '4rem';
     height: 20rem;
   }
 </style>
+
+<script is:inline>
+  console.log('bbbbbbbbbbbbbbbbbbbbbbbb');
+  const adjustWidth = () => {
+    const forwardWidth = document.querySelector('.forward').offsetWidth;
+    console.log(forwardWidth);
+    document.querySelector('.target').style.width = `${forwardWidth}px`;
+  };
+
+  // コンポーネントがマウントされた後に幅を調整
+  adjustWidth();
+  // ウィンドウのリサイズ時にも幅を再調整
+  window.addEventListener('resize', adjustWidth);
+
+  return () => {
+    // コンポーネントのアンマウント時にイベントリスナーを解除
+    window.removeEventListener('resize', adjustWidth);
+  };
+</script>
