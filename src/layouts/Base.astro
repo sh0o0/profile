@@ -1,6 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import Header from '../components/Header';
 import { getLangFromUrl } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -24,7 +24,9 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Header />
+    <img src="/images/top_gummy.svg" alt="top_gummy" class="top-gummy" />
+
+    <Header client:only />
     <slot />
     <Footer />
   </body>
@@ -49,9 +51,12 @@ const { title } = Astro.props;
       height: 100vh;
       font-family: 'Jura', 'Yu Gothic';
       position: relative;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
     body {
+      position: relative;
+      background-image: url(/images/paper-texture.png);
     }
 
     h1,
@@ -62,6 +67,20 @@ const { title } = Astro.props;
     }
     p {
       font-size: 16px;
+    }
+
+    .top-gummy {
+      position: absolute;
+      z-index: -10;
+      top: -180px;
+      left: -100px;
+    }
+
+    @media (min-width: 768px) {
+      .top-gummy {
+        top: -900px;
+        left: -600px;
+      }
     }
   </style>
 </html>

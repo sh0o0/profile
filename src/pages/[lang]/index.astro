@@ -1,23 +1,17 @@
 ---
-import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import BlackButton from '../../components/BlackButton.astro';
 import PrimaryButton from '../../components/PrimaryButton.astro';
-import StackedSignboard from '../../components/StackedSignboard.astro';
+import StackedSignboard from '../../components/StickedSignboard.astro';
 
 export const getStaticPaths = (() => {
-  return [
-    { params: { lang: 'en' } },
-    { params: { lang: 'ja' } },
-  ];
+  return [{ params: { lang: 'en' } }, { params: { lang: 'ja' } }];
 }) satisfies GetStaticPaths;
 ---
 
 <Base title="Shotaro Nakata's Portfolio">
-  <div
-    class="relative h-screen overflow-hidden"
-    style="background-image: url(/images/paper-texture.png)"
-  >
+  <div class="relative h-screen overflow-hidden">
     <main
       class="max-w-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
     >
@@ -46,12 +40,6 @@ export const getStaticPaths = (() => {
       alt="me"
       class="absolute -z-10"
       style="right: 200px; top: 0; bottom: 0; margin: auto;"
-    />
-    <img
-      src="/images/top_gummy.svg"
-      alt="top_gummy"
-      class="absolute -z-10"
-      style="top: -800px; left: -540px;"
     />
     <img
       src="/images/middle_gummy.svg"
