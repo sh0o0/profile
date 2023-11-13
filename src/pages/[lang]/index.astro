@@ -41,10 +41,22 @@ const translatePath = useTranslatedPath(currentLang);
     <div
       class="flex justify-center mb-16 md:absolute md:left-40 md:bottom-40 md:mb-0"
     >
-      <StickedSignboard
-        title="Contacts"
-        description="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-      />
+      <StickedSignboard title="Contacts">
+        <div class="grid grid-flow-col auto-cols-auto gap-4 p-4">
+          <a
+            href="https://www.linkedin.com/in/shotaro-nakata-777593262"
+            class="w-fit mx-auto"
+          >
+            <img src="/images/marks/linkdin.png" alt="Linkdin" class="h-10" />
+          </a>
+          <a href="https://github.com/sh0o0" class="w-fit mx-auto">
+            <img src="/images/marks/github.svg" alt="GitHub" class="h-10" />
+          </a>
+          <a href="https://twitter.com/sh0o0000" class="w-fit mx-auto">
+            <img src="/images/marks/x.png" alt="X" class="h-9" />
+          </a>
+        </div>
+      </StickedSignboard>
     </div>
     <img
       src="/images/me.svg"
