@@ -27,48 +27,32 @@ const signboardTopHeight = '4rem';
 
 <style>
   .edge {
+    --edge-height: 8rem;
+    --edge-width: 19rem;
+
     position: relative;
-    width: 19rem;
-    height: 21rem;
+    height: var(--edge-height);
+    width: var(--edge-width);
     transition: all 0.3s ease-out;
   }
   .edge:hover {
-    width: 19.25rem;
-    height: 21.25rem;
+    height: calc(var(--edge-height) + 0.25rem);
+    width: calc(var(--edge-width) + 0.25rem);
   }
   .forward {
     position: absolute;
     z-index: 20;
     top: 0;
     left: 0;
-    width: 18rem;
-    height: 20rem;
+    height: calc(var(--edge-height) - 1rem);
+    width: calc(var(--edge-width) - 1rem);
   }
   .behind {
     position: absolute;
     z-index: 10;
     bottom: 0;
     right: 0;
-    width: 18rem;
-    height: 20rem;
+    height: calc(var(--edge-height) - 1rem);
+    width: calc(var(--edge-width) - 1rem);
   }
 </style>
-
-<script is:inline>
-  console.log('bbbbbbbbbbbbbbbbbbbbbbbb');
-  const adjustWidth = () => {
-    const forwardWidth = document.querySelector('.forward').offsetWidth;
-    console.log(forwardWidth);
-    document.querySelector('.target').style.width = `${forwardWidth}px`;
-  };
-
-  // コンポーネントがマウントされた後に幅を調整
-  adjustWidth();
-  // ウィンドウのリサイズ時にも幅を再調整
-  window.addEventListener('resize', adjustWidth);
-
-  return () => {
-    // コンポーネントのアンマウント時にイベントリスナーを解除
-    window.removeEventListener('resize', adjustWidth);
-  };
-</script>
