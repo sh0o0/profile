@@ -3,34 +3,45 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import BlackButton from '../../components/BlackButton.astro';
 import PrimaryButton from '../../components/PrimaryButton.astro';
-import StackedSignboard from '../../components/StickedSignboard.astro';
+import StickedSignboard from '../../components/StickedSignboard.astro';
+import { getLangFromUrl, useTranslatedPath } from '../../i18n/utils';
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: 'en' } }, { params: { lang: 'ja' } }];
 }) satisfies GetStaticPaths;
+
+const currentLang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(currentLang);
 ---
 
 <Base title="Shotaro Nakata's Portfolio">
-  <div class="relative h-screen overflow-hidden">
+  <div class="overflow-hidden md:relative md:h-screen">
     <main
-      class="max-w-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+      class="w-full mt-48 px-4 md:absolute md:max-w-lg md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:mt-0"
     >
-      <h1 class="text-center text-6xl font-extrabold">Hi!<br />I'm Shotaro.</h1>
-      <div class="h-8"></div>
-      <p>
+      <h1 class="text-center text-5xl font-extrabold md:text-6xl">
+        Hi!<br />I'm Shotaro.
+      </h1>
+      <div class="h-4 md:h-8"></div>
+      <p class="max-w-lg px-4 md:px-0">
         I am a front-end developer with a passion for building user friendly and
         performant SPAs and JAMstack sites.
       </p>
-      <div class="h-8"></div>
-      <div class="flex justify-between">
-        <BlackButton>Who am I?</BlackButton>
-        <a href="/projects">
+      <div class="h-16 md:h-8"></div>
+      <div class="flex flex-col items-center space-y-4 md:justify-between">
+        <a href={translatePath('/about')}>
+          <BlackButton>Who am I?</BlackButton>
+        </a>
+        <a href={translatePath('/projects')}>
           <PrimaryButton>Discover my projects.</PrimaryButton>
         </a>
       </div>
+      <div class="h-16 md:hidden"></div>
     </main>
-    <div class="absolute left-40 bottom-40">
-      <StackedSignboard
+    <div
+      class="flex justify-center mb-16 md:absolute md:left-40 md:bottom-40 md:mb-0"
+    >
+      <StickedSignboard
         title="Contacts"
         description="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       />
@@ -38,13 +49,13 @@ export const getStaticPaths = (() => {
     <img
       src="/images/me.svg"
       alt="me"
-      class="absolute -z-10"
+      class="hidden absolute -z-10 md:block"
       style="right: 200px; top: 0; bottom: 0; margin: auto;"
     />
     <img
       src="/images/middle_gummy.svg"
       alt="middle_gummy"
-      class="absolute -z-10"
+      class="hidden absolute -z-10 md:block"
       style="right: -540px; bottom: -550px;"
     />
   </div>
