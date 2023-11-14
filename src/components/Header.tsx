@@ -1,8 +1,13 @@
-import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from '../i18n/utils';
 import { languages } from '../i18n/ui';
 import { useState } from 'preact/hooks';
 
 const currentLang = getLangFromUrl(new URL(window.location.href));
+const t = useTranslations(currentLang);
 const translatePath = useTranslatedPath(currentLang);
 
 export default function Header() {
@@ -31,13 +36,13 @@ export default function Header() {
           <div class="hidden md:block">
             <ul class="flex flex-row text-xl font-bold space-x-8">
               <li>
-                <a href={translatePath('/')}> Home</a>
+                <a href={translatePath('/')}> {t('nav.home')}</a>
               </li>
               <li>
-                <a href={translatePath('/about')}> About</a>
+                <a href={translatePath('/about')}> {t('nav.about')}</a>
               </li>
               <li>
-                <a href={translatePath('/projects')}> Projects</a>
+                <a href={translatePath('/projects')}> {t('nav.projects')}</a>
               </li>
             </ul>
           </div>
@@ -69,19 +74,21 @@ export default function Header() {
         </nav>
       </header>
       <div
-        className={`absolute z-50 top-16 w-screen md:hidden ${openMenu ? 'block' : 'hidden'}`}
+        className={`absolute z-50 top-16 w-screen md:hidden ${
+          openMenu ? 'block' : 'hidden'
+        }`}
         id="navbar-default"
         role="dialog"
       >
         <ul class="grid grid-cols-1 gap-6 rounded-lg text-primary bg-light-black text-xl font-bold mx-4 p-4">
           <li>
-            <a href={translatePath('/')}> Home</a>
+            <a href={translatePath('/')}> {t('nav.home')}</a>
           </li>
           <li>
-            <a href={translatePath('/about')}> About</a>
+            <a href={translatePath('/about')}> {t('nav.about')}</a>
           </li>
           <li>
-            <a href={translatePath('/projects')}> Projects</a>
+            <a href={translatePath('/projects')}> {t('nav.projects')}</a>
           </li>
         </ul>
       </div>
