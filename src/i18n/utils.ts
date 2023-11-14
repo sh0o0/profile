@@ -26,3 +26,8 @@ export function useTranslatedPath(lang: keyof typeof ui) {
     return `/${l}${path}`
   }
 }
+
+export function translateUrl(lang: keyof typeof ui, url: URL) {
+  const path = url.pathname.split('/').slice(2).join('/');
+  return `/${lang}/${path}`
+}

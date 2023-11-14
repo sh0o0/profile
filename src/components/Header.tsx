@@ -1,12 +1,14 @@
+import { useState } from 'preact/hooks';
+import { ui } from '../i18n/ui';
 import {
   getLangFromUrl,
+  translateUrl,
   useTranslatedPath,
   useTranslations,
 } from '../i18n/utils';
-import { languages } from '../i18n/ui';
-import { useState } from 'preact/hooks';
 
-const currentLang = getLangFromUrl(new URL(window.location.href));
+const url = new URL(window.location.href);
+const currentLang = getLangFromUrl(url);
 const t = useTranslations(currentLang);
 const translatePath = useTranslatedPath(currentLang);
 
@@ -22,13 +24,13 @@ export default function Header() {
       >
         <nav class="flex flex-row justify-between  md:flex-row-reverse">
           <ul class="flex flex-row text-xl underline-offset-4 divide-x-2">
-            {Object.entries(languages).map(([lang, label]) => (
+            {Object.keys(ui).map((lang) => (
               <li class="px-2">
                 <a
-                  href={`/${lang}`}
+                  href={translateUrl((lang as keyof typeof ui), url)}
                   class={`${currentLang === lang ? 'underline' : ''}`}
                 >
-                  {label}
+                  {lang.toUpperCase()}
                 </a>
               </li>
             ))}

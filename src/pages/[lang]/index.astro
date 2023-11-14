@@ -1,10 +1,10 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import Base from '../../layouts/Base.astro';
 import BlackButton from '../../components/BlackButton.astro';
+import Contacts from '../../components/Contacts.astro';
 import PrimaryButton from '../../components/PrimaryButton.astro';
 import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../i18n/utils';
-import Contacts from '../../components/Contacts.astro';
+import Base from '../../layouts/Base.astro';
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: 'en' } }, { params: { lang: 'ja' } }];
@@ -15,7 +15,7 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<Base title="Shotaro Nakata's Portfolio">
+<Base title={t('home.title')}>
   <div class="overflow-hidden h-screen md:relative">
     <main
       class="w-full mt-48 px-4 md:absolute md:max-w-lg md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:mt-0"
@@ -25,7 +25,7 @@ const translatePath = useTranslatedPath(lang);
       </h1>
       <div class="h-4 md:h-8"></div>
       <p class="max-w-lg px-4 md:px-0">
-        {t('home.introduce')}
+        {t('home.introduction')}
       </p>
       <div class="h-16 md:h-8"></div>
       <div
