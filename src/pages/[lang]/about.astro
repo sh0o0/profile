@@ -1,12 +1,54 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Generic from '../../layouts/Generic.astro';
+import Contacts from '../../components/Contacts.astro';
+import Subheadline from '../../components/Subheadline.astro';
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: 'en' } }, { params: { lang: 'ja' } }];
 }) satisfies GetStaticPaths;
 ---
 
-<Generic title="About | Shotaro Nakata" headline='About'>
-  <div class="mt-20"></div>
+<Generic title="About | Shotaro Nakata" headline="About me">
+  <div class="mt-10">
+    <div class="relative h-80">
+      <div class="absolute z-10 translate-x-1/2 translate-y-1/2 -left-20 top-28">
+        <Contacts width="12rem" />
+      </div>
+      <img
+        src="/images/me.svg"
+        alt="me"
+        class="absolute h-80 translate-x-1/2 left-40"
+      />
+    </div>
+    <p class="mt-10">
+      I am a front-end developer with a passion for building user friendly and
+      performant SPAs and JAMstack sites.
+    </p>
+    <a href="#" class="block mt-4 underline underline-offset-2">Download CV →</a
+    >
+
+    <a href="#first-step">
+      <img src="/images/icons/south.svg" alt="next" class="mt-14 mx-auto" />
+    </a>
+
+    <div id="first-step" class="mt-40">
+      <Subheadline text="First steps." />
+      <p class="whitespace-break-spaces break-words">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      </p>
+    </div>
+    <div class="mt-40">
+      <Subheadline text="My Experience." />
+      <p class="whitespace-break-spaces break-words">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      </p>
+    </div>
+    <div class="mt-40 mb-20">
+      <Subheadline text="Tech Stack." />
+      <p class="whitespace-break-spaces break-words">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      </p>
+    </div>
+  </div>
 </Generic>

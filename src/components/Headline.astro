@@ -1,9 +1,9 @@
 ---
 interface Props {
-  headline: string;
+  text: string;
 }
 
-const { headline } = Astro.props;
+const { text: headline } = Astro.props;
 ---
 
 <h1 class="text-left text-6xl font-extrabold">{headline}</h1>
