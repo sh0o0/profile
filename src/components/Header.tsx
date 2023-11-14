@@ -1,8 +1,15 @@
-import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
-import { languages } from '../i18n/ui';
 import { useState } from 'preact/hooks';
+import { ui } from '../i18n/ui';
+import {
+  getLangFromUrl,
+  translateUrl,
+  useTranslatedPath,
+  useTranslations,
+} from '../i18n/utils';
 
-const currentLang = getLangFromUrl(new URL(window.location.href));
+const url = new URL(window.location.href);
+const currentLang = getLangFromUrl(url);
+const t = useTranslations(currentLang);
 const translatePath = useTranslatedPath(currentLang);
 
 export default function Header() {
@@ -17,13 +24,13 @@ export default function Header() {
       >
         <nav class="flex flex-row justify-between  md:flex-row-reverse">
           <ul class="flex flex-row text-xl underline-offset-4 divide-x-2">
-            {Object.entries(languages).map(([lang, label]) => (
+            {Object.keys(ui).map((lang) => (
               <li class="px-2">
                 <a
-                  href={`/${lang}`}
+                  href={translateUrl((lang as keyof typeof ui), url)}
                   class={`${currentLang === lang ? 'underline' : ''}`}
                 >
-                  {label}
+                  {lang.toUpperCase()}
                 </a>
               </li>
             ))}
@@ -31,13 +38,13 @@ export default function Header() {
           <div class="hidden md:block">
             <ul class="flex flex-row text-xl font-bold space-x-8">
               <li>
-                <a href={translatePath('/')}> Home</a>
+                <a href={translatePath('/')}> {t('nav.home')}</a>
               </li>
               <li>
-                <a href={translatePath('/about')}> About</a>
+                <a href={translatePath('/about')}> {t('nav.about')}</a>
               </li>
               <li>
-                <a href={translatePath('/projects')}> Projects</a>
+                <a href={translatePath('/projects')}> {t('nav.projects')}</a>
               </li>
             </ul>
           </div>
@@ -69,19 +76,21 @@ export default function Header() {
         </nav>
       </header>
       <div
-        className={`absolute z-50 top-16 w-screen md:hidden ${openMenu ? 'block' : 'hidden'}`}
+        className={`absolute z-50 top-16 w-screen md:hidden ${
+          openMenu ? 'block' : 'hidden'
+        }`}
         id="navbar-default"
         role="dialog"
       >
         <ul class="grid grid-cols-1 gap-6 rounded-lg text-primary bg-light-black text-xl font-bold mx-4 p-4">
           <li>
-            <a href={translatePath('/')}> Home</a>
+            <a href={translatePath('/')}> {t('nav.home')}</a>
           </li>
           <li>
-            <a href={translatePath('/about')}> About</a>
+            <a href={translatePath('/about')}> {t('nav.about')}</a>
           </li>
           <li>
-            <a href={translatePath('/projects')}> Projects</a>
+            <a href={translatePath('/projects')}> {t('nav.projects')}</a>
           </li>
         </ul>
       </div>
