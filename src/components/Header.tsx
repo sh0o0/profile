@@ -27,7 +27,7 @@ export default function Header() {
             {Object.keys(ui).map((lang) => (
               <li class="px-2">
                 <a
-                  href={translateUrl((lang as keyof typeof ui), url)}
+                  href={translateUrl(lang as keyof typeof ui, url)}
                   class={`${currentLang === lang ? 'underline' : ''}`}
                 >
                   {lang.toUpperCase()}
@@ -76,7 +76,7 @@ export default function Header() {
         </nav>
       </header>
       <div
-        className={`absolute z-50 top-16 w-screen md:hidden ${
+        className={`fixed z-50 top-16 w-screen md:hidden ${
           openMenu ? 'block' : 'hidden'
         }`}
         id="navbar-default"
@@ -84,13 +84,18 @@ export default function Header() {
       >
         <ul class="grid grid-cols-1 gap-6 rounded-lg text-primary bg-light-black text-xl font-bold mx-4 p-4">
           <li>
-            <a href={translatePath('/')}> {t('nav.home')}</a>
+            <a href={translatePath('/')} class="block">
+              {t('nav.home')}
+            </a>
           </li>
           <li>
-            <a href={translatePath('/about')}> {t('nav.about')}</a>
+            <a href={translatePath('/about')} class="block">
+              {' '}
+              {t('nav.about')}
+            </a>
           </li>
           <li>
-            <a href={translatePath('/projects')}> {t('nav.projects')}</a>
+            <a href={translatePath('/projects')} class="block"> {t('nav.projects')}</a>
           </li>
         </ul>
       </div>
