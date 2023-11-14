@@ -76,7 +76,7 @@ export default function Header() {
         </nav>
       </header>
       <div
-        className={`absolute z-50 top-16 w-screen md:hidden ${
+        className={`fixed z-50 top-16 w-screen md:hidden ${
           openMenu ? 'block' : 'hidden'
         }`}
         id="navbar-default"
