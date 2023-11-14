@@ -11,7 +11,7 @@ const { title, headline } = Astro.props;
 ---
 
 <Base title={title}>
-  <main class="relative w-full px-4 pt-40 md:px-20 md:pt-80">
+  <main class="relative w-full px-4 pt-40 md:max-w-5xl md:mx-auto md:pt-80">
     <Headline text={headline} />
     <slot />
   </main>
