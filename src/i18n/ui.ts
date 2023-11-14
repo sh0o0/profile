@@ -1,44 +1,5 @@
 export const defaultLang = 'en';
 
-// const projects: Project[] = [
-//   {
-//     name: 'Otomo',
-//     description:
-//       'An AI travel partner app. You can ask anything about your trip. At the same time, you can see places on the map.\nI made and operate this app by myself.',
-//     image: '/images/projects/otomo.png',
-//     url: 'https://otomo-yeah.studio.site/',
-//     github: 'https://github.com/sh0o0/otomo',
-//   },
-//   {
-//     name: 'Packer',
-//     description:
-//       'An app record photos taken on a trip along with the locations.\nI was making this app by myself until released and for a while after that.',
-//     image: packerOgp,
-//     url: 'https://packer.jp/',
-//   },
-//   {
-//     name: 'I Kasa',
-//     description:
-//       'An app that users can rental umbrellas.\nI was making this app in a small team as tech lead.',
-//     image: ikasaOgp,
-//     url: 'https://www.i-kasa.com/',
-//   },
-//   {
-//     name: 'Allegy Card',
-//     description:
-//       'An app that users can show their allegy card to restaurants in several languages.\nI was making most parts of this app.',
-//     image: allegyCardOgp,
-//     url: 'https://apps.apple.com/jp/app/%E3%82%A2%E3%83%AC%E3%83%AB%E3%82%AE%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%89/id1542216729?l=en-US',
-//   },
-//   {
-//     name: 'Mintama',
-//     description:
-//       'An app that users can note, manage tasks and learn by spaces learning.\nThis is my first portfolio as software engineer. I made this app by myself.',
-//     image: '/images/projects/mintama.png',
-//     github: 'https://github.com/sh0o0/mintama',
-//   },
-// ];
-
 
 export const ui = {
   en: {
@@ -85,7 +46,7 @@ export const ui = {
     'projects.myPortfolio.techs': 'Astro, TypeScript, Tailwind CSS, Preact, Cloudflare',
   },
   ja: {
-    'home.introduce': '新しいものを作るのが好きなフルスタックエンジニアです！',
+    'home.introduction': '新しいものを作るのが好きなフルスタックエンジニアです！',
     'about.introduction': '新しいものを作るのが好きなフルスタックエンジニアです！',
     'about.downloadCV': 'レジュメをダウンロード →',
     'about.firstSteps.description': 'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
