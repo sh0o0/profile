@@ -1,8 +1,12 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import Generic from '../../layouts/Generic.astro';
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: 'en' } }, { params: { lang: 'ja' } }];
 }) satisfies GetStaticPaths;
-
 ---
+
+<Generic title="About | Shotaro Nakata" headline='About'>
+  <div class="mt-20"></div>
+</Generic>
