@@ -7,9 +7,10 @@ const lang = getLangFromUrl(Astro.url);
 
 export interface Props {
   title: string;
+  bodyClasses?: string;
 }
 
-const { title } = Astro.props;
+const { title, bodyClasses = '' } = Astro.props;
 ---
 
 <!doctype html>

@@ -28,7 +28,9 @@ const translatePath = useTranslatedPath(currentLang);
         performant SPAs and JAMstack sites.
       </p>
       <div class="h-16 md:h-8"></div>
-      <div class="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:space-y-0">
+      <div
+        class="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:space-y-0"
+      >
         <a href={translatePath('/about')}>
           <BlackButton>Who am I?</BlackButton>
         </a>
@@ -67,6 +69,8 @@ const translatePath = useTranslatedPath(currentLang);
         </div>
       </StickedSignboard>
     </div>
+  </div>
+  <div class="absolute top-0 h-full w-full overflow-hidden">
     <img
       src="/images/me.svg"
       alt="me"
@@ -76,7 +80,7 @@ const translatePath = useTranslatedPath(currentLang);
     <img
       src="/images/middle_gummy.svg"
       alt="middle_gummy"
-      class="hidden absolute -z-10 md:block"
+      class="hidden absolute -z-10 overflow-hidden md:block"
       style="right: -540px; bottom: -550px;"
     />
   </div>
