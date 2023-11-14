@@ -1,0 +1,18 @@
+---
+import Headline from '../components/Headline.astro';
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  headline: string;
+}
+
+const { title, headline } = Astro.props;
+---
+
+<Base title={title}>
+  <main class="relative w-full px-4 pt-40 md:max-w-5xl md:mx-auto md:pt-80">
+    <Headline text={headline} />
+    <slot />
+  </main>
+</Base>

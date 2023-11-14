@@ -1,0 +1,36 @@
+---
+import StickedSignboard from "./StickedSignboard.astro";
+
+interface Props {
+  height?: string;
+  width?: string;
+}
+
+const { height , width } = Astro.props;
+---
+
+<StickedSignboard title="Contacts" height={height} width={width}>
+  <div class="grid grid-flow-col auto-cols-auto gap-4 p-4">
+    <a
+      href="https://www.linkedin.com/in/shotaro-nakata-777593262"
+      class="w-fit mx-auto"
+      target="_blank"
+    >
+      <img src="/images/marks/linkdin.png" alt="Linkdin" class="h-8" />
+    </a>
+    <a
+      href="https://github.com/sh0o0"
+      class="w-fit mx-auto"
+      target="_blank"
+    >
+      <img src="/images/marks/github.svg" alt="GitHub" class="h-8" />
+    </a>
+    <a
+      href="https://twitter.com/sh0o0000"
+      class="w-fit mx-auto"
+      target="_blank"
+    >
+      <img src="/images/marks/x.png" alt="X" class="h-7" />
+    </a>
+  </div>
+</StickedSignboard>

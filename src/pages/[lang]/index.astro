@@ -3,8 +3,8 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import BlackButton from '../../components/BlackButton.astro';
 import PrimaryButton from '../../components/PrimaryButton.astro';
-import StickedSignboard from '../../components/StickedSignboard.astro';
 import { getLangFromUrl, useTranslatedPath } from '../../i18n/utils';
+import Contacts from '../../components/Contacts.astro';
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: 'en' } }, { params: { lang: 'ja' } }];
@@ -15,7 +15,7 @@ const translatePath = useTranslatedPath(currentLang);
 ---
 
 <Base title="Shotaro Nakata's Portfolio">
-  <div class="overflow-hidden md:relative md:h-screen">
+  <div class="overflow-hidden h-screen md:relative">
     <main
       class="w-full mt-48 px-4 md:absolute md:max-w-lg md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:mt-0"
     >
@@ -28,7 +28,9 @@ const translatePath = useTranslatedPath(currentLang);
         performant SPAs and JAMstack sites.
       </p>
       <div class="h-16 md:h-8"></div>
-      <div class="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:space-y-0">
+      <div
+        class="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:space-y-0"
+      >
         <a href={translatePath('/about')}>
           <BlackButton>Who am I?</BlackButton>
         </a>
@@ -41,32 +43,10 @@ const translatePath = useTranslatedPath(currentLang);
     <div
       class="flex justify-center mb-16 md:absolute md:left-40 md:bottom-40 md:mb-0"
     >
-      <StickedSignboard title="Contacts">
-        <div class="grid grid-flow-col auto-cols-auto gap-4 p-4">
-          <a
-            href="https://www.linkedin.com/in/shotaro-nakata-777593262"
-            class="w-fit mx-auto"
-            target="_blank"
-          >
-            <img src="/images/marks/linkdin.png" alt="Linkdin" class="h-10" />
-          </a>
-          <a
-            href="https://github.com/sh0o0"
-            class="w-fit mx-auto"
-            target="_blank"
-          >
-            <img src="/images/marks/github.svg" alt="GitHub" class="h-10" />
-          </a>
-          <a
-            href="https://twitter.com/sh0o0000"
-            class="w-fit mx-auto"
-            target="_blank"
-          >
-            <img src="/images/marks/x.png" alt="X" class="h-9" />
-          </a>
-        </div>
-      </StickedSignboard>
+      <Contacts />
     </div>
+  </div>
+  <div class="absolute -z-10 top-0 h-full w-full overflow-hidden">
     <img
       src="/images/me.svg"
       alt="me"
@@ -76,7 +56,7 @@ const translatePath = useTranslatedPath(currentLang);
     <img
       src="/images/middle_gummy.svg"
       alt="middle_gummy"
-      class="hidden absolute -z-10 md:block"
+      class="hidden absolute -z-10 overflow-hidden md:block"
       style="right: -540px; bottom: -550px;"
     />
   </div>

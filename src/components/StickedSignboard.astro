@@ -3,9 +3,11 @@ import Signboard from './Signboard.astro';
 
 interface Props {
   title: string;
+  height?: string;
+  width?: string;
 }
 
-const { title } = Astro.props;
+const { title, height = '8rem', width = '19rem' } = Astro.props;
 const signboardTopHeight = '4rem';
 ---
 
@@ -25,11 +27,13 @@ const signboardTopHeight = '4rem';
   />
 </div>
 
-<style>
+<style
+  define:vars={{
+    'edge-height': height,
+    'edge-width': width,
+  }}
+>
   .edge {
-    --edge-height: 8rem;
-    --edge-width: 19rem;
-
     position: relative;
     height: var(--edge-height);
     width: var(--edge-width);

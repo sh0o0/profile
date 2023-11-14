@@ -7,15 +7,20 @@ import {
 import Base from '../../layouts/Base.astro';
 import StackedSignboard from '../../components/StackedSignboard.astro';
 import { getOGPImage } from '../../utils/ogp';
+import Headline from '../../components/Headline.astro';
+import Generic from '../../layouts/Generic.astro';
 
 export const getStaticPaths = getLangStaticPaths;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const packerOgp = await getOGPImage('https://packer.jp/') ?? '';
-const ikasaOgp = await getOGPImage('https://www.i-kasa.com/') ?? '';
-const allegyCardOgp = await getOGPImage('https://apps.apple.com/jp/app/%E3%82%A2%E3%83%AC%E3%83%AB%E3%82%AE%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%89/id1542216729?l=en-US') ?? '';
+const packerOgp = (await getOGPImage('https://packer.jp/')) ?? '';
+const ikasaOgp = (await getOGPImage('https://www.i-kasa.com/')) ?? '';
+const allegyCardOgp =
+  (await getOGPImage(
+    'https://apps.apple.com/jp/app/%E3%82%A2%E3%83%AC%E3%83%AB%E3%82%AE%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%89/id1542216729?l=en-US'
+  )) ?? '';
 
 interface Project {
   name: string;
@@ -36,76 +41,79 @@ const projects: Project[] = [
   },
   {
     name: 'Packer',
-    description: 'An app record photos taken on a trip along with the locations.\nI was making this app by myself until released and for a while after that.',
+    description:
+      'An app record photos taken on a trip along with the locations.\nI was making this app by myself until released and for a while after that.',
     image: packerOgp,
     url: 'https://packer.jp/',
   },
   {
     name: 'I Kasa',
-    description: 'An app that users can rental umbrellas.\nI was making this app in a small team as tech lead.',
+    description:
+      'An app that users can rental umbrellas.\nI was making this app in a small team as tech lead.',
     image: ikasaOgp,
     url: 'https://www.i-kasa.com/',
   },
   {
     name: 'Allegy Card',
-    description: 'An app that users can show their allegy card to restaurants in several languages.\nI was making most parts of this app.',
+    description:
+      'An app that users can show their allegy card to restaurants in several languages.\nI was making most parts of this app.',
     image: allegyCardOgp,
     url: 'https://apps.apple.com/jp/app/%E3%82%A2%E3%83%AC%E3%83%AB%E3%82%AE%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%89/id1542216729?l=en-US',
   },
   {
     name: 'Mintama',
-    description: 'An app that users can note, manage tasks and learn by spaces learning.\nThis is my first portfolio as software engineer. I made this app by myself.',
+    description:
+      'An app that users can note, manage tasks and learn by spaces learning.\nThis is my first portfolio as software engineer. I made this app by myself.',
     image: '/images/projects/mintama.png',
     github: 'https://github.com/sh0o0/mintama',
-  }
+  },
 ];
 ---
 
-<Base title="Shotaro Nakata's Portfolio">
-  <main class="relative w-full px-4 pt-40 md:px-20 md:pt-80">
-    <h1 class="text-left text-6xl font-extrabold">Projects</h1>
-    <div class="mt-20 mb-60 grid grid-cols-1 gap-y-20 lg:grid-cols-2 md:gap-x-10 md:gap-y-40 md:px-10">
-      {
-        projects.map((p) => (
-          <div class="m-auto">
-            <StackedSignboard title={p.name}>
-              <div slot="forward" class="w-full h-full">
-                <img
-                  src={p.image}
-                  class="object-cover h-full w-full"
-                  alt={p.name}
-                />
+<Generic title="Projects | Shotaro" headline="Projects.">
+  <div
+    class="mt-20 mb-60 grid grid-cols-1 gap-y-20 lg:grid-cols-2 md:gap-x-10 md:gap-y-40"
+  >
+    {
+      projects.map((p) => (
+        <div class="m-auto">
+          <StackedSignboard title={p.name}>
+            <div slot="forward" class="w-full h-full">
+              <img
+                src={p.image}
+                class="object-cover h-full w-full"
+                alt={p.name}
+              />
+            </div>
+            <div
+              slot="behind"
+              class="h-full w-full flex flex-col justify-between p-4"
+            >
+              <p class="whitespace-pre-wrap">{p.description}</p>
+              <div class="flex flex-row space-x-4 text-pure-black">
+                {p.url && (
+                  <a
+                    href={p.url}
+                    class="underline underline-offset-2"
+                    target="_blank"
+                  >
+                    View
+                  </a>
+                )}
+                {p.github && (
+                  <a
+                    href={p.github}
+                    class="underline underline-offset-2"
+                    target="_blank"
+                  >
+                    Code
+                  </a>
+                )}
               </div>
-              <div
-                slot="behind"
-                class="h-full w-full flex flex-col justify-between p-4"
-              >
-                <p class="whitespace-pre-wrap">{p.description}</p>
-                <div class="flex flex-row space-x-4 text-pure-black">
-                  {p.url && (
-                    <a
-                      href={p.url}
-                      class="underline underline-offset-2"
-                      target="_blank"
-                    >
-                      View
-                    </a>
-                  )}
-                  {p.github && (
-                    <a
-                      href={p.github}
-                      class="underline underline-offset-2"
-                      target="_blank"
-                    >
-                      Code
-                    </a>
-                  )}
-                </div>
-              </div>
-            </StackedSignboard>
-          </div>
-        ))
-      }
-    </div>
-  </main>
-</Base>
+            </div>
+          </StackedSignboard>
+        </div>
+      ))
+    }
+  </div>
+</Generic>
