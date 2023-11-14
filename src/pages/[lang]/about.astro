@@ -11,22 +11,29 @@ export const getStaticPaths = (() => {
 
 <Generic title="About | Shotaro Nakata" headline="About me">
   <div class="mt-10">
-    <div class="relative h-80">
-      <div class="absolute z-10 translate-x-1/2 translate-y-1/2 -left-20 top-28">
-        <Contacts width="12rem" />
+    <div class="flex flex-row-reverse">
+      <div class="relative h-80">
+        <div
+          class="absolute z-10 translate-x-1/2 translate-y-1/2 -left-20 top-28"
+        >
+          <Contacts width="12rem" />
+        </div>
+        <img
+          src="/images/me.svg"
+          alt="me"
+          class="absolute h-80 translate-x-1/2 left-40"
+        />
       </div>
-      <img
-        src="/images/me.svg"
-        alt="me"
-        class="absolute h-80 translate-x-1/2 left-40"
-      />
+      <div>
+        <p class="mt-10">
+          I am a front-end developer with a passion for building user friendly
+          and performant SPAs and JAMstack sites.
+        </p>
+        <a href="#" class="block mt-4 underline underline-offset-2"
+          >Download CV →</a
+        >
+      </div>
     </div>
-    <p class="mt-10">
-      I am a front-end developer with a passion for building user friendly and
-      performant SPAs and JAMstack sites.
-    </p>
-    <a href="#" class="block mt-4 underline underline-offset-2">Download CV →</a
-    >
 
     <a href="#first-step">
       <img src="/images/icons/south.svg" alt="next" class="mt-14 mx-auto" />
