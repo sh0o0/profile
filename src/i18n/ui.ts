@@ -1,5 +1,45 @@
 export const defaultLang = 'en';
 
+// const projects: Project[] = [
+//   {
+//     name: 'Otomo',
+//     description:
+//       'An AI travel partner app. You can ask anything about your trip. At the same time, you can see places on the map.\nI made and operate this app by myself.',
+//     image: '/images/projects/otomo.png',
+//     url: 'https://otomo-yeah.studio.site/',
+//     github: 'https://github.com/sh0o0/otomo',
+//   },
+//   {
+//     name: 'Packer',
+//     description:
+//       'An app record photos taken on a trip along with the locations.\nI was making this app by myself until released and for a while after that.',
+//     image: packerOgp,
+//     url: 'https://packer.jp/',
+//   },
+//   {
+//     name: 'I Kasa',
+//     description:
+//       'An app that users can rental umbrellas.\nI was making this app in a small team as tech lead.',
+//     image: ikasaOgp,
+//     url: 'https://www.i-kasa.com/',
+//   },
+//   {
+//     name: 'Allegy Card',
+//     description:
+//       'An app that users can show their allegy card to restaurants in several languages.\nI was making most parts of this app.',
+//     image: allegyCardOgp,
+//     url: 'https://apps.apple.com/jp/app/%E3%82%A2%E3%83%AC%E3%83%AB%E3%82%AE%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%89/id1542216729?l=en-US',
+//   },
+//   {
+//     name: 'Mintama',
+//     description:
+//       'An app that users can note, manage tasks and learn by spaces learning.\nThis is my first portfolio as software engineer. I made this app by myself.',
+//     image: '/images/projects/mintama.png',
+//     github: 'https://github.com/sh0o0/mintama',
+//   },
+// ];
+
+
 export const ui = {
   en: {
     'nav.home': 'Home',
@@ -21,6 +61,28 @@ export const ui = {
     'about.myExperience.description': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
     'about.techStack': 'Tech Stack.',
     'about.techStack.description': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    'projects.title': 'Projects | Shotaro',
+    'projects.headline': 'Projects.',
+    'projects.view': 'View',
+    'projects.code': 'Code',
+    'projects.otomo': 'Otomo',
+    'projects.otomo.description': 'An AI travel partner app. You can ask anything about your trip. At the same time, you can see places on the map.\nI made and operate this app by myself.',
+    'projects.otomo.techs': 'Go, Flutter, Terraform, Firebase, GCP, GRPC, GPT, Docker',
+    'projects.packer': 'Packer',
+    'projects.packer.description': 'An app record photos taken on a trip along with the locations.\nI was making this app by myself until released and for a while after that.',
+    'projects.packer.techs': 'Go, Flutter, Firebase, GCP, GRPC, GPT, Docker',
+    'projects.ikasa': 'I Kasa',
+    'projects.ikasa.description': 'An app that users can rental umbrellas in towns.\nI was working as a tech lead in a small development team of about five people.',
+    'projects.ikasa.techs': 'Go, Flutter, Firebase, GCP, AWS, k8s, GraphQL, GRPC, React, NFC, BLE, Docker, MySQL',
+    'projects.allergyCard': 'Allergy Card',
+    'projects.allergyCard.description': 'An app that users can show their allergy card to restaurants in several languages.\nI was making most parts of this app.',
+    'projects.allergyCard.techs': 'Flutter',
+    'projects.mintama': 'Mintama',
+    'projects.mintama.description': 'An app that users can note, manage tasks and learn by spaces learning.\nThis is my first portfolio as software engineer. I made this app by myself.',
+    'projects.mintama.techs': 'Python, Django, Vue.js, AWS, Docker, CircleCI, MySQL, Nginx',
+    'projects.myPortfolio': 'My Portfolio',
+    'projects.myPortfolio.description': 'This site.',
+    'projects.myPortfolio.techs': 'Astro, TypeScript, Tailwind CSS, Preact, Cloudflare',
   },
   ja: {
     'home.introduce': '新しいものを作るのが好きなフルスタックエンジニアです！',
@@ -29,5 +91,14 @@ export const ui = {
     'about.firstSteps.description': 'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
     'about.myExperience.description': 'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
     'about.techStack.description': 'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
+    'projects.otomo.description': '旅のAIパートナーアプリ。旅に関することなら何でも聞けます。同時に地図上で場所を見ることができます。\nこのアプリは私が一人で作成し、運用しています。',
+    'projects.packer.description': '旅で撮った写真を場所とともに記録するアプリです。\nリリースまでは私一人で作成し、その後もしばらくは一人でシステム運用していました。',
+    'projects.ikasa': 'アイカサ',
+    'projects.ikasa.description': '街中で傘をレンタルできるアプリ。\n5人ほどの小さな開発チームですが、テックリードとして働いていました。',
+    'projects.allergyCard': 'アレルギーカード',
+    'projects.allergyCard.description': 'アレルギーカードをレストランに表示できるアプリ。\nこのアプリのほとんどを作成していました。',
+    'projects.mintama': 'みんたま',
+    'projects.mintama.description': 'メモ、タスク管理、スペース学習できるアプリです。\nこれは私のソフトウェアエンジニアとしての最初のポートフォリオです。個人で作成しました。',
+    'projects.myPortfolio.description': 'このサイト。',
   },
 } as const;
