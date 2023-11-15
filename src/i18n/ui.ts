@@ -3,10 +3,12 @@ export const defaultLang = 'en';
 
 export const ui = {
   en: {
+    'og.siteName': 'Shotaro Nakata\'s Portfolio',
+    'og.description': 'Hi! I\'m Shotaro. I\'m a full-stack developer. I love to create something new.',
+    'contacts': 'Contacts',
     'nav.home': 'Home',
     'nav.about': 'About',
     'nav.projects': 'Projects',
-    'contacts': 'Contacts',
     'home.title': 'Shotaro Nakata\'s Portfolio',
     'home.greeting': 'Hi!\nI\'m Shotaro.',
     'home.introduction': 'I\'m a full-stack developer. I love to create something new.',
@@ -46,6 +48,7 @@ export const ui = {
     'projects.myPortfolio.techs': 'Astro, TypeScript, Tailwind CSS, Preact, Cloudflare',
   },
   ja: {
+    'og.description': 'Hi! I\'m Shotaro. 新しいものを作るのが好きなフルスタックエンジニアです！',
     'home.introduction': '新しいものを作るのが好きなフルスタックエンジニアです！',
     'about.introduction': '新しいものを作るのが好きなフルスタックエンジニアです！',
     'about.downloadCV': 'レジュメをダウンロード →',
