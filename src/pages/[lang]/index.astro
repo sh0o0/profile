@@ -3,7 +3,11 @@ import type { GetStaticPaths } from 'astro';
 import BlackButton from '../../components/BlackButton.astro';
 import Contacts from '../../components/Contacts.astro';
 import PrimaryButton from '../../components/PrimaryButton.astro';
-import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../i18n/utils';
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from '../../i18n/utils';
 import Base from '../../layouts/Base.astro';
 
 export const getStaticPaths = (() => {
@@ -16,11 +20,15 @@ const translatePath = useTranslatedPath(lang);
 ---
 
 <Base title={t('home.title')}>
-  <div class="overflow-hidden animate-fade-in-2000 md:h-screen md:relative">
+  <div
+    class="min-h-screen overflow-hidden animate-fade-in-2000 md:h-screen md:relative"
+  >
     <main
-      class="w-full mt-48 px-4 animate-fade-in-2000 md:absolute md:max-w-lg md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:mt-0"
+      class="w-full mt-48 px-4 md:absolute md:max-w-lg md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:mt-0"
     >
-      <h1 class="text-center text-5xl font-extrabold animate-fade-in-2000 md:text-6xl whitespace-break-spaces">
+      <h1
+        class="text-center text-5xl font-extrabold animate-fade-in-2000 md:text-6xl whitespace-break-spaces"
+      >
         {t('home.greeting')}
       </h1>
       <div class="h-4 md:h-8"></div>
@@ -46,7 +54,9 @@ const translatePath = useTranslatedPath(lang);
       <Contacts />
     </div>
   </div>
-  <div class="absolute -z-10 top-0 h-full w-full overflow-hidden animate-fade-in-2000">
+  <div
+    class="absolute -z-10 top-0 h-full w-full overflow-hidden animate-fade-in-2000"
+  >
     <img
       src="/images/me.svg"
       alt="me"
