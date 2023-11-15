@@ -3,16 +3,10 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const canonicalURL = new URL(
-  Astro.url.pathname,
-  Astro.site ?? Astro.url.origin
-);
-const socialImageURL = new URL('/ogp.svg', Astro.url);
-console.log(import.meta.env);
-console.log(Astro.url);
-console.log(Astro.site);
-console.log(canonicalURL);
-console.log(socialImageURL);
+
+const baseURL = import.meta.env.PROD ? 'https://sh0o0.net/' : Astro.url.origin;
+const canonicalURL = new URL(Astro.url.pathname, baseURL);
+const socialImageURL = new URL('/ogp.svg', baseURL);
 
 export interface Props {
   title: string;
