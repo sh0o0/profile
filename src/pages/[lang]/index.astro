@@ -1,18 +1,16 @@
 ---
-import type { GetStaticPaths } from 'astro';
 import BlackButton from '../../components/BlackButton.astro';
 import Contacts from '../../components/Contacts.astro';
 import PrimaryButton from '../../components/PrimaryButton.astro';
 import {
-  getLangFromUrl,
-  useTranslatedPath,
-  useTranslations,
+getLangFromUrl,
+getLangStaticPaths,
+useTranslatedPath,
+useTranslations,
 } from '../../i18n/utils';
 import Base from '../../layouts/Base.astro';
 
-export const getStaticPaths = (() => {
-  return [{ params: { lang: 'en' } }, { params: { lang: 'ja' } }];
-}) satisfies GetStaticPaths;
+export const getStaticPaths = getLangStaticPaths;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
