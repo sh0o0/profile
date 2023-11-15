@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { ui } from '../i18n/ui';
 import {
   getLangFromUrl,
@@ -6,6 +6,7 @@ import {
   useTranslatedPath,
   useTranslations,
 } from '../i18n/utils';
+import { occurredEventAtExceptRef } from '../utils/preact';
 
 const url = new URL(window.location.href);
 const currentLang = getLangFromUrl(url);
@@ -15,6 +16,24 @@ const translatePath = useTranslatedPath(currentLang);
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const toggleMenu = () => setOpenMenu(!openMenu);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        occurredEventAtExceptRef(menuRef, event) &&
+        occurredEventAtExceptRef(buttonRef, event)
+      ) {
+        setOpenMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -54,6 +73,7 @@ export default function Header() {
               class="-m-2.5 inline-flex items-center justify-center p-2.5 text-primary rounded-lg active:rounded-lg"
               aria-controls="navbar-default"
               aria-expanded="false"
+              ref={buttonRef}
               onClick={toggleMenu}
             >
               <span class="sr-only">Open main menu</span>
@@ -81,20 +101,27 @@ export default function Header() {
         }`}
         id="navbar-default"
         role="dialog"
+        ref={menuRef}
       >
-        <ul class="grid grid-cols-1 rounded-lg text-primary bg-pure-black text-xl font-bold mx-4 p-4">
+        <ul class="grid grid-cols-1 rounded-lg text-primary bg-pure-black text-xl font-bold mx-4 px-4">
           <li>
-            <a href={translatePath('/')} class="block py-2 border-b-2 border-primary">
+            <a
+              href={translatePath('/')}
+              class="block py-3 border-b-2 border-primary"
+            >
               {t('nav.home')}
             </a>
           </li>
           <li>
-            <a href={translatePath('/about')} class="block py-2 border-b-2 border-primary">
+            <a
+              href={translatePath('/about')}
+              class="block py-3 border-b-2 border-primary"
+            >
               {t('nav.about')}
             </a>
           </li>
           <li>
-            <a href={translatePath('/projects')} class="block py-2">
+            <a href={translatePath('/projects')} class="block py-3">
               {t('nav.projects')}
             </a>
           </li>
