@@ -9,8 +9,20 @@ module.exports = {
     },
     extend: {
       animation: {
-        'bounce-1500': 'bounce 1.5s infinite',
-        'bounce-2000': 'bounce 2s infinite',
+        'bounce-light-1500': 'bounce-light 1.5s infinite',
+        'bounce-light-2000': 'bounce-light 2s infinite',
+      },
+      keyframes: {
+        'bounce-light': {
+          '0%, 100%': {
+            transform: 'translateY(-10%)',
+            animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
+          },
+          '50%': {
+            transform: 'none',
+            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
+          },
+        },
       },
     },
   },
