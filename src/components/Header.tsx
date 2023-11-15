@@ -82,20 +82,21 @@ export default function Header() {
         id="navbar-default"
         role="dialog"
       >
-        <ul class="grid grid-cols-1 gap-6 rounded-lg text-primary bg-light-black text-xl font-bold mx-4 p-4">
+        <ul class="grid grid-cols-1 rounded-lg text-primary bg-pure-black text-xl font-bold mx-4 p-4">
           <li>
-            <a href={translatePath('/')} class="block">
+            <a href={translatePath('/')} class="block py-2 border-b-2 border-primary">
               {t('nav.home')}
             </a>
           </li>
           <li>
-            <a href={translatePath('/about')} class="block">
-              {' '}
+            <a href={translatePath('/about')} class="block py-2 border-b-2 border-primary">
               {t('nav.about')}
             </a>
           </li>
           <li>
-            <a href={translatePath('/projects')} class="block"> {t('nav.projects')}</a>
+            <a href={translatePath('/projects')} class="block py-2">
+              {t('nav.projects')}
+            </a>
           </li>
         </ul>
       </div>
