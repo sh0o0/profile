@@ -13,6 +13,7 @@ module.exports = {
         'bounce-light-2000': 'bounceLight 2s infinite',
         'fade-in': 'fadeIn 1s ease-out',
         'fade-in-2000': 'fadeIn 2s ease-out',
+        'slide-up': 'slideUP 1s ease-out',
       },
       keyframes: {
         bounceLight: {
@@ -28,6 +29,10 @@ module.exports = {
         fadeIn: {
           from: { opacity: 0 },
           to: { opacity: 1 },
+        },
+        slideUP: {
+          from: { transform: 'translateY(100%)', opacity: 0 },
+          to: { transform: 'translateY(0)', opacity: 1 },
         },
       },
     },

@@ -12,7 +12,9 @@ const { title, headline } = Astro.props;
 
 <Base title={title}>
   <main class="relative w-full px-4 pt-40 md:max-w-5xl md:mx-auto md:pt-80">
-    <Headline text={headline} />
-    <slot />
+    <Headline text={headline} className='animate-slide-up'/>
+    <div class="animate-fade-in-2000">
+      <slot />
+    </div>
   </main>
 </Base>
