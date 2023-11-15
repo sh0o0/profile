@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <>
       <header
-        class="w-full z-50 fixed top-0 flex flex-col px-4 py-4 text-primary mix-blend-difference md:px-10 md:py-6"
+        class="w-full z-50 fixed top-0 flex flex-col px-4 py-4 text-primary mix-blend-difference animate-fade-in md:px-10 md:py-6"
         style="background-color: inherit;"
       >
         <nav class="flex flex-row justify-between  md:flex-row-reverse">
