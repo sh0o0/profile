@@ -1,9 +1,10 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header';
-import { getLangFromUrl } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const canonicalURL = new URL(Astro.url.pathname, Astro.url.origin);
 const socialImageURL = new URL('/ogp.svg', Astro.url);
 
@@ -15,13 +16,24 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang={lang}>
-  <head prefix="og: https://ogp.me/ns#">
+  <head
+    prefix="og: https://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#"
+  >
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
-    <meta property="og:image" content={socialImageURL} />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:site_name" content={t('og.siteName')} />
+    <meta property="og:description" content={t('og.description')} />
+    <meta property="fb:app_id" content="nakar0" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sh0o0000" />
+    <meta name="twitter:creator" content="@sh0o0000" />
     <title>{title}</title>
   </head>
   <body>
