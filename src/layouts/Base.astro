@@ -4,22 +4,23 @@ import Header from '../components/Header';
 import { getLangFromUrl } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.url.origin);
+const socialImageURL = new URL('/ogp.svg', Astro.url);
 
 export interface Props {
   title: string;
 }
-
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<!-- TODO: Add ja to lang -->
 <html lang={lang}>
-  <head>
+  <head prefix="og: https://ogp.me/ns#">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- TODO: Implement favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:image" content={socialImageURL} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
