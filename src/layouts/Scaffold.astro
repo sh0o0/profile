@@ -6,7 +6,7 @@ const t = useTranslations(lang);
 
 const baseURL = import.meta.env.PROD ? 'https://sh0o0.net/' : Astro.url.origin;
 const canonicalURL = new URL(Astro.url.pathname, baseURL);
-const socialImageURL = new URL('/ogp.svg', baseURL);
+const socialImageURL = new URL('/ogp.png', baseURL);
 
 export interface Props {
   title: string;
@@ -26,14 +26,14 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
     <meta property="og:site_name" content={t('og.siteName')} />
     <meta property="og:description" content={t('og.description')} />
-    <meta property="fb:app_id" content="nakar0" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@sh0o0000" />
     <meta name="twitter:creator" content="@sh0o0000" />
+    <meta property="”og:locale”" content={lang === 'ja' ? 'ja_JP' : 'en_US'} />
     <title>{title}</title>
   </head>
   <body>
