@@ -59,9 +59,9 @@ export default function Header() {
               <li>
                 <a href={translatePath('/')}> {t('nav.home')}</a>
               </li>
-              <li>
+              {/* <li>
                 <a href={translatePath('/about')}> {t('nav.about')}</a>
-              </li>
+              </li> */}
               <li>
                 <a href={translatePath('/projects')}> {t('nav.projects')}</a>
               </li>
@@ -112,14 +112,14 @@ export default function Header() {
               {t('nav.home')}
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               href={translatePath('/about')}
               class="block py-3 border-b-2 border-primary"
             >
               {t('nav.about')}
             </a>
-          </li>
+          </li> */}
           <li>
             <a href={translatePath('/projects')} class="block py-3">
               {t('nav.projects')}
