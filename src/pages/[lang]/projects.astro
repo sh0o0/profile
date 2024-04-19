@@ -15,25 +15,28 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const packerOgp =
-  (await getOGPImage('https://packer.jp/').catch(() => '')) ?? '';
+const famicareOgp =
+  (await getOGPImage('https://lp.famicare.jp/').catch(() => '')) ?? '';
 const ikasaOgp =
   (await getOGPImage('https://www.i-kasa.com/').catch(() => '')) ?? '';
-const allegyCardOgp =
-  (await getOGPImage(
-    'https://apps.apple.com/jp/app/%E3%82%A2%E3%83%AC%E3%83%AB%E3%82%AE%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%89/id1542216729?l=en-US'
-  ).catch(() => '')) ?? '';
 
 interface Project {
   name: string;
   description: string;
-  image: string;
+  image?: string;
   techs?: string;
   url?: string;
   github?: string;
 }
 
 const projects: Project[] = [
+{
+    name: t('projects.famicare'),
+    description: t('projects.famicare.description'),
+    image: famicareOgp,
+    techs: t('projects.famicare.techs'),
+    url: 'https://lp.famicare.jp/',
+  },
   {
     name: t('projects.otomo'),
     description: t('projects.otomo.description'),
@@ -46,8 +49,6 @@ const projects: Project[] = [
     name: t('projects.packer'),
     description: t('projects.packer.description'),
     techs: t('projects.packer.techs'),
-    image: packerOgp,
-    url: 'https://packer.jp/',
   },
   {
     name: t('projects.ikasa'),
@@ -59,9 +60,7 @@ const projects: Project[] = [
   {
     name: t('projects.allergyCard'),
     description: t('projects.allergyCard.description'),
-    image: allegyCardOgp,
     techs: t('projects.allergyCard.techs'),
-    url: 'https://apps.apple.com/jp/app/%E3%82%A2%E3%83%AC%E3%83%AB%E3%82%AE%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%89/id1542216729?l=en-US',
   },
   {
     name: t('projects.mintama'),
@@ -90,11 +89,13 @@ const projects: Project[] = [
         <div class="m-auto">
           <StackedSignboard title={p.name}>
             <div slot="forward" class="w-full h-full">
-              <img
-                src={p.image}
-                class="object-cover h-full w-full"
-                alt={p.name}
-              />
+              {p.image && (
+                  <img
+                  src={p.image}
+                  class="object-cover h-full w-full"
+                  alt={p.name}
+                />
+              )}
             </div>
             <div
               slot="behind"
