@@ -3,10 +3,10 @@ import BlackButton from '../../components/BlackButton.astro';
 import Contacts from '../../components/Contacts.astro';
 import PrimaryButton from '../../components/PrimaryButton.astro';
 import {
-getLangFromUrl,
-getLangStaticPaths,
-useTranslatedPath,
-useTranslations,
+  getLangFromUrl,
+  getLangStaticPaths,
+  useTranslatedPath,
+  useTranslations,
 } from '../../i18n/utils';
 import Base from '../../layouts/Base.astro';
 
@@ -30,25 +30,25 @@ const translatePath = useTranslatedPath(lang);
         {t('home.greeting')}
       </h1>
       <div class="h-4 md:h-8"></div>
-        <div class="max-w-lg px-4 md:px-0">
-          <p>
-              {t('home.introduction')}
-          </p>
-          <a href="/assets/resume.pdf" class="block mt-2 underline underline-offset-4"
+      <div class="max-w-lg px-4 md:px-0">
+        <p>
+          {t('home.introduction')}
+        </p>
+        <!-- <a href="/assets/resume.pdf" class="block mt-2 underline underline-offset-4"
             >{t('about.downloadResume')}</a
-          >
-        </div>
+          > -->
+      </div>
       <div class="h-16 md:h-8"></div>
-        <div
-          class="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:space-y-0"
-        >
-          <a href={translatePath('/about')} class="animate-bounce-light-1500">
+      <div
+        class="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-y-0"
+      >
+        <!-- <a href={translatePath('/about')} class="animate-bounce-light-1500">
             <BlackButton>{t('home.whoAmI')}</BlackButton>
-          </a>
-          <a href={translatePath('/projects')} class="animate-bounce-light-2000">
-            <PrimaryButton>{t('home.discoverMyProjects')}</PrimaryButton>
-          </a>
-        </div>
+          </a> -->
+        <a href={translatePath('/projects')} class="animate-bounce-light-2000">
+          <PrimaryButton>{t('home.discoverMyProjects')}</PrimaryButton>
+        </a>
+      </div>
       <div class="h-16 md:hidden"></div>
     </main>
     <div
